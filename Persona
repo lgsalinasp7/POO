@@ -1,0 +1,32 @@
+class Persona {
+constructor(cedula,nombre,edad) {
+
+    this.cedula = cedula;
+    this.nombre = nombre;
+    this.edad = edad;
+  
+}
+    saludar() {
+        console.log( `Hola soy ${this.nombre} y tengo ${this.edad} años y mi cedula es ${this.cedula}`);
+    }
+
+}
+
+    let usuario = new Persona('123456789','Juan',25);
+
+    let persona2 = new Persona('987654321','Maria',30);
+
+  
+    persona2.saludar();
+    
+
+   
+
+    usuario.nombre = 'Luis Guillermo';
+    usuario.edad = 30;
+    usuario.cedula = '123456789';
+
+    usuario.saludar();
+   
+
+
