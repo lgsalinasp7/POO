@@ -57,28 +57,53 @@
 
 // const auto = new Auto("Toyota", "Corolla");
 // auto.encender();
-// auto.conducir();
+// // auto.conducir();
 
-class Usuario {
-    constructor(nombre, password) {
-        this.nombre = nombre;
-        this.password  = password;
+// class Usuario {
+//     constructor(nombre, password) {
+//         this.nombre = nombre;
+//         this.password  = password;
+//     }
+
+//     #validarPassword(password) {
+//         return this.password === password;
+//     }
+
+//     iniciarSesion(password) {
+//         if(this.#validarPassword(password)) {
+//             console.log(`Bienvenido ${this.nombre}`);
+//         } else {
+//             console.log("Password incorrecto");
+//         }
+//     }
+  
+// }
+
+// const usuario = new Usuario("Juan", "1234");
+// usuario.iniciarSesion("1234");
+// usuario.iniciarSesion("0000");
+
+class Cajero {
+    constructor(saldo) {
+        this.saldo = saldo;
     }
-
-    #validarPassword(password) {
-        return this.password === password;
+    verificarSaldo(monto) {
+        return this.saldo >= monto;//falso o verdade
     }
-
-    iniciarSesion(password) {
-        if(this.#validarPassword(password)) {
-            console.log(`Bienvenido ${this.nombre}`);
+    restarSaldo(monto) {
+        this.saldo -= monto;
+    }
+    entregarDinero(monto) {
+        console.log(`Aquí tienes $${monto} 💵`);
+    }
+    retirarDinero(monto) {
+        if (this.verificarSaldo(monto)) {
+            this.restarSaldo(monto);
+            this.entregarDinero(monto);
         } else {
-            console.log("Password incorrecto");
+            console.log("Saldo insuficiente ❌");
         }
     }
-  
 }
-
-const usuario = new Usuario("Juan", "1234");
-usuario.iniciarSesion("1234");
-usuario.iniciarSesion("0000");
+const  miCajero = new Cajero(1000);
+miCajero.retirarDinero(500);
